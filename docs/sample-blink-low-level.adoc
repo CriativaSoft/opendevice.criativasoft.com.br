@@ -55,6 +55,7 @@ Options::
  * *Raspberry Pi / Ubuntu*: /dev/ttyACM0
  * *Linux*: /dev/ttyUSB0
  * *Windows*: COM3
+ * Use: *UsbConnection.listAvailablePortNames();* to list available ports
 ====
 
 [source, c]

@@ -19,11 +19,11 @@ Before using OpenDevice you will need as a minimum a Java Development Kit (JDK) 
 |===
 |Name |Download |Docs
 
-|Local Server
+|Middleware (Server)
 |0.1.2
 |Guide
 
-|Android 
+|Android App
 |Demo, IntelliHouse
 |Guide
 
@@ -64,8 +64,6 @@ Most components in OpenDevice is developed in JAVA and is published to Maven Cen
 |
 |Sample Dir
 |===
-
-{asterisk} This release is based on the Asciidoctor {artifact-version} release.
 
 
 

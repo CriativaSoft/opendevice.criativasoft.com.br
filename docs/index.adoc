@@ -13,7 +13,7 @@ Discover OpenDevice and how it can help you.
 
 * link:/#what-is-opendevice[What is OpenDevice?]
 
-* link:https://github.com/CriativaSoft/OpenDevice/blob/master/license/license.txt[What is the OpenDevice license?]
+* link:https://github.com/CriativaSoft/OpenDevice/blob/master/license/license.txt[What is the OpenDevice license?^]
 
 == Get Started with OpenDevice
 

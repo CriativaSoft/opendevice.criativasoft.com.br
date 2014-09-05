@@ -11,6 +11,7 @@ head
     meta name='twitter:creator' content='@asciidoctor'
     meta name='twitter:url' content="#{site.base_url}#{page.url}"
     meta name='twitter:title' content=page.title
+    meta name='google-translate-customization' content='de6cb6dd4f2b4723-856081e607d7333a-g69c0c52bdd30e06d-1e'
     meta name='twitter:description' content=summarize(html_to_text(page.content).strip.gsub(/^[:space:]*\n/, ''), 25)
   link rel='stylesheet' href='/stylesheets/styles.css'
   script src='/javascripts/vendor/custom.modernizr.js'
@@ -27,8 +28,8 @@ body.antialiased
         li.divider
         li: a href='/' Home
         li.divider
-        li: a href='/news/' News
-        li.divider
+        // li: a href='/news/' News
+        // li.divider
         li: a href='https://github.com/CriativaSoft/OpenDevice' Code
         li.divider
         li: a href='/docs/' Docs
@@ -97,6 +98,7 @@ body.antialiased
             |Facebook
             '
             a href='https://www.facebook.com/opendevice' rel='publisher' OpenDevice
+          div id='google_translate_element'
           h4 Contribute to OpenDevice docs
           p This website is open source! The source is hosted on GitHub.
           p If you want to help by improving upon it, <a href="http://github.com/CriativaSoft/opendevice.criativasoft.com.br">fork the project</a>, revise the content, then send a pull request. When the pull request is merged, the site will be updated automatically.
@@ -107,8 +109,6 @@ body.antialiased
           |&copy; #{site.organization} #{Date.today.year}.
           br
           span style='white-space: nowrap;' Composed in AsciiDoc. Styled by Foundation. Baked with Awestruct.
-          br
-          |Content licensed under the CC BY 3.0 License.
       .large-6.columns
   script
     |document.write('<script src=' + ('__proto__' in {} ? '/javascripts/vendor/zepto' : '/javascripts/vendor/jquery') + '.js><\/script>')
@@ -129,6 +129,11 @@ body.antialiased
     |  var p1 = document.createElement('script'); p1.async = true; p1.src = 'https://apis.google.com/js/plusone.js';
     |  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(p1, s);
     |})();
+  script
+    |function googleTranslateElementInit() {
+    |  new google.translate.TranslateElement({pageLanguage: 'en', includedLanguages: 'es,pt,zh-CN', layout: google.translate.TranslateElement.InlineLayout.SIMPLE, gaTrack: true, gaId: 'UA-52975804-2'}, 'google_translate_element');
+    |}
+  script src="http://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"
   - if site.google_analytics
     =google_analytics_async
 |</html>
