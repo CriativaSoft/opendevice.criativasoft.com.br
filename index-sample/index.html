@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="generator" content="Asciidoctor 0.1.4">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>What you&#8217;ll build</title>
+<title>What is OpenDevice?</title>
 <style>
 /* Asciidoctor default stylesheet | MIT License | http://asciidoctor.org */
 article, aside, details, figcaption, figure, footer, header, hgroup, main, nav, section, summary { display: block; }
@@ -455,14 +455,7 @@ span.line-numbers { border-right: 1px solid #E5E5E5; color: #999; display: inlin
 <div id="toc" class="toc">
 <div id="toctitle">Table of Contents</div>
 <ul class="sectlevel1">
-<li><a href="#what-you-ll-build">What you&#8217;ll build</a></li>
-<li><a href="#what-you-ll-need">What you&#8217;ll need</a></li>
-<li><a href="#scratch">Set up the project</a></li>
-<li><a href="#initial">Create a resource representation class</a></li>
-<li><a href="#create-a-resource-controller">Create a resource controller</a></li>
-<li><a href="#make-the-application-executable">Make the application executable</a></li>
-<li><a href="#test-the-service">Test the service</a></li>
-<li><a href="#summary">Summary</a></li>
+<li><a href="#what-is-opendevice">What is OpenDevice?</a></li>
 </ul>
 </div>
 </div>
@@ -471,14 +464,34 @@ span.line-numbers { border-right: 1px solid #E5E5E5; color: #999; display: inlin
 <p>This guide walks you through the process of creating a "hello world" <a href="/understanding/REST">RESTful web service</a> with Spring.</p>
 </div>
 <div class="sect1">
-<h2 id="what-you-ll-build"><a class="anchor" href="#what-you-ll-build"></a>What you&#8217;ll build</h2>
+<h2 id="what-is-opendevice"><a class="anchor" href="#what-is-opendevice"></a>What is OpenDevice?</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>You&#8217;ll build a service that will accept HTTP GET requests at:</p>
+<p>OpenDevice is a set of tools and APIs to build solutions for the <strong>"Internet of Things"</strong> like home automations systems, robotics, smart city, energy monitoring, security, sensor monitoring.<br>
+Provide an open and unified framework to interconnect IoT devices, data, and applications over the Web,
+if you need communication between software and hardware, probably your place is here.</p>
+</div>
+<div class="paragraph">
+<p>The main objective is monitor and control inexpensive hardwares like Arduino, RaspberryPI and <a href="docs/#supported-devices">similar platforms</a>, local(offline) or over the cloud using high-level programing languages and with abstraction of protocols and low-level details.</p>
+</div>
+<div class="paragraph">
+<p>This allows you to focus on your project and innovation, leave obscure details of communication protocols and specifications with OpenDevice, you will make a major step towards the success of your project.</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+Plug your device (Arduino/Raspberypi/Other) to the Cloud and sync in real-time
+</td>
+</tr>
+</table>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">http://localhost:8080/greeting</pre>
+<pre class="nowrap">http://opendevice.criativasoft.com.br/</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -489,92 +502,6 @@ span.line-numbers { border-right: 1px solid #E5E5E5; color: #999; display: inlin
 <pre class="CodeRay nowrap"><code class="json language-json">{<span class="key"><span class="delimiter">&quot;</span><span class="content">id</span><span class="delimiter">&quot;</span></span>:<span class="integer">1</span>,<span class="key"><span class="delimiter">&quot;</span><span class="content">content</span><span class="delimiter">&quot;</span></span>:<span class="string"><span class="delimiter">&quot;</span><span class="content">Hello, World!</span><span class="delimiter">&quot;</span></span>}</code></pre>
 </div>
 </div>
-<div class="paragraph">
-<p>You can customize the greeting with an optional <code>name</code> parameter in the query string:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="nowrap">http://localhost:8080/greeting?name=User</pre>
-</div>
-</div>
-<div class="paragraph">
-<p>The <code>name</code> parameter value overrides the default value of "World" and is reflected in the response:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay nowrap"><code class="json language-json">{<span class="key"><span class="delimiter">&quot;</span><span class="content">id</span><span class="delimiter">&quot;</span></span>:<span class="integer">1</span>,<span class="key"><span class="delimiter">&quot;</span><span class="content">content</span><span class="delimiter">&quot;</span></span>:<span class="string"><span class="delimiter">&quot;</span><span class="content">Hello, User!</span><span class="delimiter">&quot;</span></span>}</code></pre>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="what-you-ll-need"><a class="anchor" href="#what-you-ll-need"></a>What you&#8217;ll need</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p><a href="https://raw.githubusercontent.com/spring-guides/getting-started-macros/master/prereq_editor_jdk_buildtools.adoc">https://raw.githubusercontent.com/spring-guides/getting-started-macros/master/prereq_editor_jdk_buildtools.adoc</a></p>
-</div>
-<div class="paragraph">
-<p><a href="https://raw.githubusercontent.com/spring-guides/getting-started-macros/master/how_to_complete_this_guide.adoc">https://raw.githubusercontent.com/spring-guides/getting-started-macros/master/how_to_complete_this_guide.adoc</a></p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="scratch"><a class="anchor" href="#scratch"></a>Set up the project</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p><a href="https://raw.githubusercontent.com/spring-guides/getting-started-macros/master/build_system_intro.adoc">https://raw.githubusercontent.com/spring-guides/getting-started-macros/master/build_system_intro.adoc</a></p>
-</div>
-<div class="paragraph">
-<p><a href="https://raw.githubusercontent.com/spring-guides/getting-started-macros/master/create_directory_structure_hello.adoc">https://raw.githubusercontent.com/spring-guides/getting-started-macros/master/create_directory_structure_hello.adoc</a></p>
-</div>
-<div class="paragraph">
-<p><a href="https://raw.githubusercontent.com/spring-guides/getting-started-macros/master/create_both_builds.adoc">https://raw.githubusercontent.com/spring-guides/getting-started-macros/master/create_both_builds.adoc</a>
-<code>build.gradle</code></p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay nowrap"><code class="java language-java"></code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p><a href="https://raw.githubusercontent.com/spring-guides/getting-started-macros/master/spring-boot-gradle-plugin.adoc">https://raw.githubusercontent.com/spring-guides/getting-started-macros/master/spring-boot-gradle-plugin.adoc</a></p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="initial"><a class="anchor" href="#initial"></a>Create a resource representation class</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>Now that you&#8217;ve set up the project and build system, you can create your web service.</p>
-</div>
-<div class="paragraph">
-<p>Begin the process by thinking about service interactions.</p>
-</div>
-<div class="paragraph">
-<p>The service will handle <code>GET</code> requests for <code>/greeting</code>, optionally with a <code>name</code> parameter in the query string. The <code>GET</code> request should return a <code>200 OK</code> response with JSON in the body that represents a greeting. It should look something like this:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay nowrap"><code class="json language-json">{
-    <span class="key"><span class="delimiter">&quot;</span><span class="content">id</span><span class="delimiter">&quot;</span></span>: <span class="integer">1</span>,
-    <span class="key"><span class="delimiter">&quot;</span><span class="content">content</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">Hello, World!</span><span class="delimiter">&quot;</span></span>
-}</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>The <code>id</code> field is a unique identifier for the greeting, and <code>content</code> is the textual representation of the greeting.</p>
-</div>
-<div class="paragraph">
-<p>To model the greeting representation, you create a resource representation class. Provide a plain old java object with fields, constructors, and accessors for the <code>id</code> and <code>content</code> data:</p>
-</div>
-<div class="paragraph">
-<p><code>src/main/java/hello/Greeting.java</code></p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay nowrap"><code class="java language-java"></code></pre>
-</div>
-</div>
 <div class="admonitionblock note">
 <table>
 <tr>
@@ -582,141 +509,17 @@ span.line-numbers { border-right: 1px solid #E5E5E5; color: #999; display: inlin
 <i class="icon-note" title="Note"></i>
 </td>
 <td class="content">
-As you see in steps below, Spring uses the <a href="http://wiki.fasterxml.com/JacksonHome">Jackson JSON</a> library to automatically marshal instances of type <code>Greeting</code> into JSON.
+The above example does not specify <code>GET</code> vs. <code>PUT</code>, <code>POST</code>.
 </td>
 </tr>
 </table>
-</div>
-<div class="paragraph">
-<p>Next you create the resource controller that will serve these greetings.</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="create-a-resource-controller"><a class="anchor" href="#create-a-resource-controller"></a>Create a resource controller</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>In Spring&#8217;s approach to building RESTful web services, HTTP requests are handled by a controller. These components are easily identified by the <a href="http://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/web/bind/annotation/RestController.html"><code>@RestController</code></a> annotation, and the <code>GreetingController</code> below handles <code>GET</code> requests for <code>/greeting</code> by returning a new instance of the <code>Greeting</code> class:</p>
-</div>
-<div class="paragraph">
-<p><code>src/main/java/hello/GreetingController.java</code></p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay nowrap"><code class="java language-java"></code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>This controller is concise and simple, but there&#8217;s plenty going on under the hood. Let&#8217;s break it down step by step.</p>
-</div>
-<div class="paragraph">
-<p>The <code>@RequestMapping</code> annotation ensures that HTTP requests to <code>/greeting</code> are mapped to the <code>greeting()</code> method.</p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="icon-note" title="Note"></i>
-</td>
-<td class="content">
-The above example does not specify <code>GET</code> vs. <code>PUT</code>, <code>POST</code>, and so forth, because <code>@RequestMapping</code> maps all HTTP operations by default. Use <code>@RequestMapping(method=GET)</code> to narrow this mapping.
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p><code>@RequestParam</code> binds the value of the query string parameter <code>name</code> into the <code>name</code> parameter of the <code>greeting()</code> method. This query string parameter is not <code>required</code>; if it is absent in the request, the <code>defaultValue</code> of "World" is used.</p>
-</div>
-<div class="paragraph">
-<p>The implementation of the method body creates and returns a new <code>Greeting</code> object with <code>id</code> and <code>content</code> attributes based on the next value from the <code>counter</code>, and formats the given <code>name</code> by using the greeting <code>template</code>.</p>
-</div>
-<div class="paragraph">
-<p>A key difference between a traditional MVC controller and the RESTful web service controller above is the way that the HTTP response body is created. Rather than relying on a <a href="/understanding/view-templates">view technology</a> to perform server-side rendering of the greeting data to HTML, this RESTful web service controller simply populates and returns a <code>Greeting</code> object. The object data will be written directly to the HTTP response as JSON.</p>
-</div>
-<div class="paragraph">
-<p>This code uses Spring 4&#8217;s new <a href="http://docs.spring.io/spring/doc/current/javadoc-api/org/springframework/web/bind/annotation/RestController.html"><code>@RestController</code></a> annotation, which marks the class as a controller where every method returns a domain object instead of a view. It&#8217;s shorthand for <code>@Controller</code> and <code>@ResponseBody</code> rolled together.</p>
-</div>
-<div class="paragraph">
-<p>The <code>Greeting</code> object must be converted to JSON. Thanks to Spring&#8217;s HTTP message converter support, you don&#8217;t need to do this conversion manually. Because <a href="http://wiki.fasterxml.com/JacksonHome">Jackson 2</a> is on the classpath, Spring&#8217;s <a href="http://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/http/converter/json/MappingJackson2HttpMessageConverter.html"><code>MappingJackson2HttpMessageConverter</code></a> is automatically chosen to convert the <code>Greeting</code> instance to JSON.</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="make-the-application-executable"><a class="anchor" href="#make-the-application-executable"></a>Make the application executable</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>Although it is possible to package this service as a traditional <a href="/understanding/WAR">WAR</a> file for deployment to an external application server, the simpler approach demonstrated below creates a standalone application. You package everything in a single, executable JAR file, driven by a good old Java <code>main()</code> method. Along the way, you use Spring&#8217;s support for embedding the <a href="/understanding/Tomcat">Tomcat</a> servlet container as the HTTP runtime, instead of deploying to an external instance.</p>
-</div>
-<div class="paragraph">
-<p><code>src/main/java/hello/Application.java</code></p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay nowrap"><code class="java language-java"></code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>The <code>main()</code> method defers to the <a href="http://docs.spring.io/spring-boot/docs/1.1.4.RELEASE/api/org/springframework/boot/SpringApplication.html"><code>SpringApplication</code></a> helper class, providing <code>Application.class</code> as an argument to its <code>run()</code> method. This tells Spring to read the annotation metadata from <code>Application</code> and to manage it as a component in the <a href="/understanding/application-context">Spring application context</a>.</p>
-</div>
-<div class="paragraph">
-<p>The <code>@ComponentScan</code> annotation tells Spring to search recursively through the <code>hello</code> package and its children for classes marked directly or indirectly with Spring&#8217;s <a href="http://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/stereotype/Component.html"><code>@Component</code></a> annotation. This directive ensures that Spring finds and registers the <code>GreetingController</code>, because it is marked with <code>@RestController</code>, which in turn is a kind of <code>@Component</code> annotation.</p>
-</div>
-<div class="paragraph">
-<p>The <a href="http://docs.spring.io/spring-boot/docs/1.1.4.RELEASE/api/org/springframework/boot/autoconfigure/EnableAutoConfiguration.html"><code>@EnableAutoConfiguration</code></a> annotation switches on reasonable default behaviors based on the content of your classpath. For example, because the application depends on the embeddable version of Tomcat (tomcat-embed-core.jar), a Tomcat server is set up and configured with reasonable defaults on your behalf. And because the application also depends on Spring MVC (spring-webmvc.jar), a Spring MVC <a href="http://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/web/servlet/DispatcherServlet.html"><code>DispatcherServlet</code></a> is configured and registered for you — no <code>web.xml</code> necessary! Auto-configuration is a powerful, flexible mechanism. See the <a href="http://docs.spring.io/spring-boot/docs/1.1.4.RELEASE/api/org/springframework/boot/autoconfigure/EnableAutoConfiguration.html">API documentation</a> for further details.</p>
-</div>
-<div class="paragraph">
-<p><a href="https://raw.githubusercontent.com/spring-guides/getting-started-macros/master/build_an_executable_jar_subhead.adoc">https://raw.githubusercontent.com/spring-guides/getting-started-macros/master/build_an_executable_jar_subhead.adoc</a></p>
-</div>
-<div class="paragraph">
-<p><a href="https://raw.githubusercontent.com/spring-guides/getting-started-macros/master/build_an_executable_jar_with_both.adoc">https://raw.githubusercontent.com/spring-guides/getting-started-macros/master/build_an_executable_jar_with_both.adoc</a></p>
-</div>
-<div class="paragraph">
-<p><a href="https://raw.githubusercontent.com/spring-guides/getting-started-macros/master/run_the_application_with_both.adoc">https://raw.githubusercontent.com/spring-guides/getting-started-macros/master/run_the_application_with_both.adoc</a></p>
-</div>
-<div class="paragraph">
-<p>Logging output is displayed. The service should be up and running within a few seconds.</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="test-the-service"><a class="anchor" href="#test-the-service"></a>Test the service</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>Now that the service is up, visit <a href="http://localhost:8080/greeting">http://localhost:8080/greeting</a>, where you see:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay nowrap"><code class="json language-json">{<span class="key"><span class="delimiter">&quot;</span><span class="content">id</span><span class="delimiter">&quot;</span></span>:<span class="integer">1</span>,<span class="key"><span class="delimiter">&quot;</span><span class="content">content</span><span class="delimiter">&quot;</span></span>:<span class="string"><span class="delimiter">&quot;</span><span class="content">Hello, World!</span><span class="delimiter">&quot;</span></span>}</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Provide a <code>name</code> query string parameter with <a href="http://localhost:8080/greeting?name=User">http://localhost:8080/greeting?name=User</a>. Notice how the value of the <code>content</code> attribute changes from "Hello, World!" to "Hello User!":</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay nowrap"><code class="json language-json">{<span class="key"><span class="delimiter">&quot;</span><span class="content">id</span><span class="delimiter">&quot;</span></span>:<span class="integer">2</span>,<span class="key"><span class="delimiter">&quot;</span><span class="content">content</span><span class="delimiter">&quot;</span></span>:<span class="string"><span class="delimiter">&quot;</span><span class="content">Hello, User!</span><span class="delimiter">&quot;</span></span>}</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>This change demonstrates that the <code>@RequestParam</code> arrangement in <code>GreetingController</code> is working as expected. The <code>name</code> parameter has been given a default value of "World", but can always be explicitly overridden through the query string.</p>
-</div>
-<div class="paragraph">
-<p>Notice also how the <code>id</code> attribute has changed from <code>1</code> to <code>2</code>. This proves that you are working against the same <code>GreetingController</code> instance across multiple requests, and that its <code>counter</code> field is being incremented on each call as expected.</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="summary"><a class="anchor" href="#summary"></a>Summary</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>Congratulations! You&#8217;ve just developed a RESTful web service with Spring.</p>
 </div>
 </div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2014-07-18 11:34:11 BRT
+Last updated 2014-09-04 23:33:50 BRT
 </div>
 </div>
 </body>
