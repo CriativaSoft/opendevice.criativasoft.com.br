@@ -1,0 +1,92 @@
+= Download
+:page-layout: base
+:toc:
+:sources: https://github.com/CriativaSoft/OpenDevice
+:issues-ref: https://github.com/CriativaSoft/OpenDevice/issues
+:maven-repo-ref: http://mvnrepository.com/artifact/br.com.criativasoft.opendevice
+:docs-ref: link:/docs
+:table-caption!:
+:language: java
+:font-awesome-url: http://fortawesome.github.io/Font-Awesome/
+:license: https://raw.githubusercontent.com/CriativaSoft/OpenDevice/master/license/license.txt
+
+== Downloads
+
+NOTE: Pre-alpha stage
+
+Before using OpenDevice you will need as a minimum a Java Development Kit (JDK) installed version 1.6 or above. Download the appropriate JDK for your operating system, run the installer, and then set up an environment variable called JAVA_HOME pointing to the location of this installation.
+
+|===
+|Name |Download |Docs
+
+|Local Server
+|0.1.2
+|Guide
+
+|Android 
+|Demo, IntelliHouse
+|Guide
+
+|Firmware 
+|UNO - Leonardo - Others
+|Guide
+|===
+
+
+// References:
+//https://github.com/xively/xively_arduino
+//https://github.com/xively/XivelyAndroid
+//https://xively.com/dev/tutorials/pi/
+//https://xively.com/dev/tutorials/arduino_wi-fi/
+//https://xively.com/dev/hardware/
+
+{asterisk} TODO: É preciso colocar informações de como instalar cada um e executar...
+
+== Developer Components and Plugins
+
+Most components in OpenDevice is developed in JAVA and is published to Maven Central.
+
+|===
+|Name |Info |Download
+|Rest  WebSocket Client
+|Android and Desktop compatible
+|link
+
+|C/C++ Lib
+|Arduino / Stelaris Lib
+|link
+
+|JavaScript API
+|Based no Atmosphere and Angular.JS
+|link
+
+|Samples
+|
+|Sample Dir
+|===
+
+{asterisk} This release is based on the Asciidoctor {artifact-version} release.
+
+
+
+== Getting Started
+
+For details of how to develop using OpenDevice, recommend reading the documentation specific to each component (the links pointing in the downloads section) and check the sample projects. However you can start with a more general guide
+
+* link:/docs/getting-started[Getting Started] (for Developers)
+
+== Sources
+
+The OpenDevice is available on GitHub and includes the complete stack to build solutions for the "Internet of Things"
+
+* {sources}[GitHub Repository for OpenDevice] 
+
+== License
+
+Copyright (c) 2013-2014 CriativaSoft. Free use of this software is granted under the terms of the Eclipse Public License v1.0.
+See the {license}[LICENSE] file for details.
+
+
+
+
+

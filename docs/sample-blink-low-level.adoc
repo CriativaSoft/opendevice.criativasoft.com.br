@@ -1,0 +1,112 @@
+= Sample Blink (low-level)
+:page-layout: base
+:toc:
+:repo: https://github.com/CriativaSoft/OpenDevice/tree/master
+:table-caption!:
+:language: java
+
+Blink sample using {repo}/opendevice-connection/opendevice-connection-stream[opendevice-connection-stream^] (the the low-level Java Library).
+
+In this example we will demonstrate how to communicate with a device (such as Arduino) using the Java low-level API to control an LED using the USB port.
+
+We are not using the OpenDevice Specifications, so let's start to simplification.
+It can be used to connect to any serial device (eg fax modem using AT commands) without necessarily it has the OpenDevice firmware. But all features of data conversion and protocol is in your hand (little more difficult).
+
+Add "opendevice-connection-stream" dependency to *pom.xml* (link:/docs/getting-started/#installation[see this], and change the artifactId)
+
+=== Hardware
+For this sample you need only a PC and  Arduino (or compatible like one of https://github.com/energia/Energia[EnergiaIDE]).
+
+image::Arduino-UNO.png[]
+
+include::_includes/setup-arduino.adoc[]
+
+=== Sources
+
+[source, java]
+.Java Side
+----
+import br.com.criativasoft.opendevice.connection.DeviceConnection;
+import br.com.criativasoft.opendevice.connection.StreamConnectionFactory;
+import br.com.criativasoft.opendevice.connection.message.Message;
+
+public class Blink {
+   public static DeviceConnection connection;
+   public static void main(String[] args) throws Exception {
+      
+      connection = StreamConnectionFactory.createUsb("/dev/ttyACM0"); // <!--1-->
+      connection.connect();
+      
+      while(true){
+         connection.send(Message.ON);
+         Thread.sleep(100);
+         connection.send(Message.OFF);
+         Thread.sleep(100);
+      }
+
+   }
+}
+----
+
+<1> Change USB Port.
+====
+Options::
+ * *Mac OS X*: /dev/tty.usbserial-A9007UX1
+ * *Raspberry Pi / Ubuntu*: /dev/ttyACM0
+ * *Linux*: /dev/ttyUSB0
+ * *Windows*: COM3
+====
+
+[source, c]
+.Arduino Side (or similar platform)
+----
+#define LED 13
+
+void setup(){
+  Serial.begin(9600);
+  pinMode(LED, OUTPUT);  
+}
+
+void loop(){
+
+  if (Serial.available() > 0) {
+
+    int value = Serial.read();  // read value
+    Serial.print("READ:");
+    Serial.println(value);  
+
+    if(value == HIGH || value == LOW ){
+      digitalWrite(LED,value);
+    }
+
+  }
+}
+----
+
+
+
+[source, java]
+.Other options of the library
+----
+
+StreamConnectionFactory.createBluetooth("20:13:01:24:01:93"); // <--1-->
+
+StreamConnectionFactory.createTcp("http://192.168.0.101:8282"); // <--2-->
+
+
+// You can customize the default message format or the way it is read. 
+// The default implementation expects a line terminator (println).
+connection.setStreamReader(new FixedStreamReader(5)); 
+
+----
+
+NOTE: These examples are for understanding how the communication process occurs at the lowest level. The API OpenDevice provide a number of features that facilitate further integration.
+
+link:/docs/#samples[See another examples]
+
+== Troubleshooting 
+
+* In LINUX, If serial port is not accessible, add your user to dialout group
+====
+sudo usermod -a -G dialout *username*
+====
