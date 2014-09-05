@@ -1,8 +1,3 @@
-= asciidoctor.org image:https://secure.travis-ci.org/asciidoctor/asciidoctor.org.png?branch=master["Build Status", link="https://travis-ci.org/asciidoctor/asciidoctor.org"]
-
-Project site for http://asciidoctor.org[Asciidoctor], composed in AsciiDoc, styled by Foundation, baked with Awestruct and published by Travis CI.
-
-For instructions on how to install Awestruct and its dependencies, refer to the section xref:install-awestruct[Install Awestruct] below.
 
 == Preview the site locally
 
@@ -80,10 +75,6 @@ Or simply run the prepared rake build task (to deploy locally):
 
  rake deploy
 
-Or just push and let https://travis-ci.org/asciidoctor/asciidoctor.org[Travis CI] do the work of deploying the site:
-
- rake push
-
 If you want to push without triggering a publish, add the following to the commit message:
 
  [ci skip]
@@ -101,12 +92,3 @@ Next, setup an RVM gemset for working with the Asciidoctor site:
 At this point, you could install Awestruct directly, but since the site build has some additional dependencies, it's best to let bundler handle the installation. Bundler will also ensure that you are using the correct versions of each gem when you run Awestruct.
 
  $ bundle install
-
-You're now Awestruct!
-
-== DNS records
-
-The site runs on the domain name asciidoctor.org, which is specified in the CNAME file.
-The GitHub server automatically sets up redirects that point from www.asciidoctor.org to asciidoctor.org.
-
-See the following help page for more details: https://help.github.com/articles/setting-up-a-custom-domain-with-github-pages
