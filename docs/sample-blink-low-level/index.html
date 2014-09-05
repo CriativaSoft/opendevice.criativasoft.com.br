@@ -1,0 +1,181 @@
+<!DOCTYPE html><!--[if IE 8]><html class="no-js lt-ie9" lang="en"><![endif]--><!--[if gt IE 8]><!--><html class="no-js" lang="en"><!--<![endif]--><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Sample Blink (low-level) | OpenDevice</title><link rel="stylesheet" href="/stylesheets/styles.css"><script src="/javascripts/vendor/custom.modernizr.js"></script><link rel="author" href="/humans.txt"></head><body class="antialiased"><nav class="top-bar"><ul class="title-area"><li class="name"><h1><a href="/">OpenDevice</a></h1></li><li class="toggle-topbar menu-icon"><a href="#"><span></span></a></li></ul><section class="top-bar-section"><ul class="right"><li class="g-plusone-slot"><div class="g-plusone" data-annotation="none"></div></li><li class="divider"></li><li><a href="/">Home</a></li><li class="divider"></li><li><a href="/news/">News</a></li><li class="divider"></li><li><a href="https://github.com/CriativaSoft/OpenDevice">Code</a></li><li class="divider"></li><li><a href="/docs/">Docs</a></li><li class="divider"></li><li class="has-form"><a class="button" href="/docs/getting-started/">Getting Started!</a></li></ul></section></nav><div class="container"><header><div class="row"><div class="large-12 columns"><h1>Sample Blink (low-level)</h1></div></div></header><div class="row full-width"><div class="large-8 columns"><div class="row"><div class="large-12 columns"><div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>Blink sample using <a href="https://github.com/CriativaSoft/OpenDevice/tree/master/opendevice-connection/opendevice-connection-stream" target="_blank">opendevice-connection-stream</a> (the the low-level Java Library).</p>
+</div>
+<div class="paragraph">
+<p>In this example we will demonstrate how to communicate with a device (such as Arduino) using the Java low-level API to control an LED using the USB port.</p>
+</div>
+<div class="paragraph">
+<p>We are not using the OpenDevice Specifications, so let&#8217;s start to simplification.
+It can be used to connect to any serial device (eg fax modem using AT commands) without necessarily it has the OpenDevice firmware. But all features of data conversion and protocol is in your hand (little more difficult).</p>
+</div>
+<div class="paragraph">
+<p>Add "opendevice-connection-stream" dependency to <strong>pom.xml</strong> (<a href="/docs/getting-started/#installation">see this</a>, and change the artifactId)</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="hardware"><a class="anchor" href="#hardware"></a>Hardware</h3>
+<div class="paragraph">
+<p>For this sample you need only a PC and  Arduino (or compatible like one of <a href="https://github.com/energia/Energia">EnergiaIDE</a>).</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="/images/Arduino-UNO.png" alt="Arduino UNO">
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="set-up-the-arduino"><a class="anchor" href="#set-up-the-arduino"></a>Set up the Arduino</h3>
+<div class="paragraph">
+<p>If you have already used Arduino before this then you can skip this step. This will setup the Arduino development environment on your computer which will allow you to upload code to your Arduino. Go to the Arduino website and choose your platform (Windows, Mac, or Linux) and follow their <a href="http://arduino.cc/en/Guide/HomePage">guide to installing the IDE</a>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="sources"><a class="anchor" href="#sources"></a>Sources</h3>
+<div class="listingblock">
+<div class="title">Java Side</div>
+<div class="content">
+<pre class="CodeRay nowrap"><code class="java language-java"><span class="keyword">import</span> <span class="include">br.com.criativasoft.opendevice.connection.DeviceConnection</span>;
+<span class="keyword">import</span> <span class="include">br.com.criativasoft.opendevice.connection.StreamConnectionFactory</span>;
+<span class="keyword">import</span> <span class="include">br.com.criativasoft.opendevice.connection.message.Message</span>;
+
+<span class="directive">public</span> <span class="type">class</span> <span class="class">Blink</span> {
+   <span class="directive">public</span> <span class="directive">static</span> DeviceConnection connection;
+   <span class="directive">public</span> <span class="directive">static</span> <span class="type">void</span> main(<span class="predefined-type">String</span><span class="type">[]</span> args) <span class="directive">throws</span> <span class="exception">Exception</span> {
+
+      connection = StreamConnectionFactory.createUsb(<span class="string"><span class="delimiter">&quot;</span><span class="content">/dev/ttyACM0</span><span class="delimiter">&quot;</span></span>); <i class="conum" data-value="1"></i><b>(1)</b>
+      connection.connect();
+
+      <span class="keyword">while</span>(<span class="predefined-constant">true</span>){
+         connection.send(Message.ON);
+         <span class="predefined-type">Thread</span>.sleep(<span class="integer">100</span>);
+         connection.send(Message.OFF);
+         <span class="predefined-type">Thread</span>.sleep(<span class="integer">100</span>);
+      }
+
+   }
+}</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Change USB Port.</td>
+</tr>
+</table>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Options</dt>
+<dd>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Mac OS X</strong>: /dev/tty.usbserial-A9007UX1</p>
+</li>
+<li>
+<p><strong>Raspberry Pi / Ubuntu</strong>: /dev/ttyACM0</p>
+</li>
+<li>
+<p><strong>Linux</strong>: /dev/ttyUSB0</p>
+</li>
+<li>
+<p><strong>Windows</strong>: COM3</p>
+</li>
+</ul>
+</div>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Arduino Side (or similar platform)</div>
+<div class="content">
+<pre class="CodeRay nowrap"><code class="c language-c"><span class="preprocessor">#define</span> LED <span class="integer">13</span>
+
+<span class="directive">void</span> setup(){
+  Serial.begin(<span class="integer">9600</span>);
+  pinMode(LED, OUTPUT);
+}
+
+<span class="directive">void</span> loop(){
+
+  <span class="keyword">if</span> (Serial.available() &gt; <span class="integer">0</span>) {
+
+    <span class="predefined-type">int</span> value = Serial.read();  <span class="comment">// read value</span>
+    Serial.print(<span class="string"><span class="delimiter">&quot;</span><span class="content">READ:</span><span class="delimiter">&quot;</span></span>);
+    Serial.println(value);
+
+    <span class="keyword">if</span>(value == HIGH || value == LOW ){
+      digitalWrite(LED,value);
+    }
+
+  }
+}</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Other options of the library</div>
+<div class="content">
+<pre class="CodeRay nowrap"><code class="java language-java">
+StreamConnectionFactory.createBluetooth(<span class="string"><span class="delimiter">&quot;</span><span class="content">20:13:01:24:01:93</span><span class="delimiter">&quot;</span></span>); <i class="conum" data-value="1"></i><b>(1)</b>
+
+StreamConnectionFactory.createTcp(<span class="string"><span class="delimiter">&quot;</span><span class="content">http://192.168.0.101:8282</span><span class="delimiter">&quot;</span></span>); <i class="conum" data-value="2"></i><b>(2)</b>
+
+
+<span class="comment">// You can customize the default message format or the way it is read.</span>
+<span class="comment">// The default implementation expects a line terminator (println).</span>
+connection.setStreamReader(<span class="keyword">new</span> FixedStreamReader(<span class="integer">5</span>));</code></pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="icon-note" title="Note"></i>
+</td>
+<td class="content">
+These examples are for understanding how the communication process occurs at the lowest level. The API OpenDevice provide a number of features that facilitate further integration.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p><a href="/docs/#samples">See another examples</a></p>
+</div>
+</div>
+<div class="sect1">
+<h2 id="troubleshooting"><a class="anchor" href="#troubleshooting"></a>Troubleshooting</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>In LINUX, If serial port is not accessible, add your user to dialout group</p>
+</li>
+</ul>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p>sudo usermod -a -G dialout <strong>username</strong></p>
+</div>
+</div>
+</div>
+</div>
+</div></div></div></div><div class="large-4 columns"><ul class="button-group radius" style="margin-top: 1.2em; margin-bottom: -0.625em"><li><a class="small secondary button" href="https://github.com/asciidoctor/asciidoctor.org/edit/master/docs/sample-blink-low-level.adoc">Edit</a></li><li><a class="small secondary button" href="https://github.com/asciidoctor/asciidoctor.org/raw/master/docs/sample-blink-low-level.adoc">Raw</a></li><li><a class="small secondary button" href="https://github.com/asciidoctor/asciidoctor.org/commits/master/docs/sample-blink-low-level.adoc">History</a></li><li><i class="icon-github icon-2x"></i></li></ul><h4>Resources</h4><p><i class="icon-download"></i> <a href="/docs/download">Download</a><br><i class="icon-github"></i> Development: <a href="https://github.com/CriativaSoft/OpenDevice">GitHub</a><br><i class="icon-group"></i> Discussions: <a href="http://groups.google.com.br/d/forum/opendevice-iot">Groups</a><br><i class="icon-facebook-sign"></i> Facebook <a href="https://www.facebook.com/opendevice" rel="publisher">OpenDevice</a></p><h4>Contribute to OpenDevice docs</h4><p>This website is open source! The source is hosted on GitHub.</p><p>If you want to help by improving upon it, <a href="http://github.com/CriativaSoft/opendevice.criativasoft.com.br">fork the project</a>, revise the content, then send a pull request. When the pull request is merged, the site will be updated automatically.</p></div></div></div><footer><div class="row full-width"><div class="large-6 columns"><p>&copy; CriativaSoft 2014.<br><span style="white-space: nowrap;">Composed in AsciiDoc. Styled by Foundation. Baked with Awestruct.</span><br>Content licensed under the CC BY 3.0 License.</p></div><div class="large-6 columns"></div></div></footer><script>document.write('<script src=' + ('__proto__' in {} ? '/javascripts/vendor/zepto' : '/javascripts/vendor/jquery') + '.js><\/script>')</script><script src="/javascripts/foundation/foundation.js"></script><script src="/javascripts/foundation/foundation.topbar.js"></script><script>$(document).foundation();</script><script>(function() { var p1 = document.createElement('script'); p1.async = true; p1.src = 'https://apis.google.com/js/plusone.js'; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(p1, s);})();</script><script type="text/javascript">
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount','UA-52975804-2']);
+_gaq.push(['_trackPageview']);
+(function() {
+ var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+ ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+</script>
+</body></html>

@@ -1,0 +1,317 @@
+<!DOCTYPE html><!--[if IE 8]><html class="no-js lt-ie9" lang="en"><![endif]--><!--[if gt IE 8]><!--><html class="no-js" lang="en"><!--<![endif]--><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Getting Started | OpenDevice</title><link rel="stylesheet" href="/stylesheets/styles.css"><script src="/javascripts/vendor/custom.modernizr.js"></script><link rel="author" href="/humans.txt"></head><body class="antialiased"><nav class="top-bar"><ul class="title-area"><li class="name"><h1><a href="/">OpenDevice</a></h1></li><li class="toggle-topbar menu-icon"><a href="#"><span></span></a></li></ul><section class="top-bar-section"><ul class="right"><li class="g-plusone-slot"><div class="g-plusone" data-annotation="none"></div></li><li class="divider"></li><li><a href="/">Home</a></li><li class="divider"></li><li><a href="/news/">News</a></li><li class="divider"></li><li><a href="https://github.com/CriativaSoft/OpenDevice">Code</a></li><li class="divider"></li><li><a href="/docs/">Docs</a></li><li class="divider"></li><li class="has-form"><a class="button" href="/docs/getting-started/">Getting Started!</a></li></ul></section></nav><div class="container"><header><div class="row"><div class="large-12 columns"><h1>Getting Started</h1></div></div></header><div class="row full-width"><div class="large-8 columns"><div class="row"><div class="large-12 columns"><div class="sect1">
+<h2 id="introduction"><a class="anchor" href="#introduction"></a>Introduction</h2>
+<div class="sectionbody">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="icon-note" title="Note"></i>
+</td>
+<td class="content">
+DRAFT: This document is under construction and may change over time. Last Update : 2014-08-24
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>OpenDevice is a set of tools and APIs to build solutions for the "Internet of Things". The main objective is to facilitate communication
+between software and hardware locally or in cloud through OpenDevice-API (<strong>under construction</strong>).<br>
+If your project does not need to communicate with an external software the OpenDevice will not serve for you!.</p>
+</div>
+<div class="paragraph">
+<p>The OpenDevice APIs enables you to prototype interactive connected products quickly and easily.</p>
+</div>
+<div class="paragraph">
+<p>Our <a href="/docs/download/#developer-components-and-plugins">libraries</a> make integrating with OpenDevice API more easy, letting you write code for your devices, applications, and services with easy integration. All libraries are Open Source and hosted on Github, so that you can use, contribute, and request features on them freely.</p>
+</div>
+<div class="paragraph">
+<p>You can communicate with OpenDevice Middleware (Cloud and Local Services) using a variety of protocols via:</p>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>HTTP (REST)</p>
+</li>
+<li>
+<p>Sockets/Websocket</p>
+</li>
+<li>
+<p>MQTT (In progress)</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>You can communicate with <a href="docs/#supported-devices">devices</a> using a variety of protocols via:</p>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>USB</p>
+</li>
+<li>
+<p>Ethernet</p>
+</li>
+<li>
+<p>WiFi</p>
+</li>
+<li>
+<p>Bluetooth</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="overview"><a class="anchor" href="#overview"></a>Overview</h2>
+<div class="sectionbody">
+<div class="imageblock">
+<div class="content">
+<img src="/images/overview.png" alt="overview">
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Devices</strong>: Is an abstraction of a physical device, which may be a lamp, socket, sensor, robot, or even a logical device. These devices are managed and controlled by a hardware like Arduino, Raspberry and others (<a href="docs/#supported-devices">see list</a>) or can be built in an embedded own equipment, this is the proposal of the internet of things. Communication with other components of the platform is done using a binary protocol that is implemented in <a href="https://github.com/CriativaSoft/OpenDevice/tree/master/OpenDeviceFirmware" target="_blank">firmware</a> written in "C / C ++" and can be ported to other platforms.</p>
+</li>
+<li>
+<p><strong>Binary Protocol</strong>: Used in communication between Device and Middleware/Clients. Can be:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Usb, Ethernet, Wifi, Bluetooth</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Clients</strong>: Any device that can make HTTP requests: PC, Mobile, Tablet or any device with a browser. According to the "client" you will
+decide which API to be used. More details are explained in the session: Components &gt; Clients APIs</p>
+</li>
+<li>
+<p><strong>Clients Protocol</strong>: Rest API, WebSocket API. (Using JSON)</p>
+</li>
+<li>
+<p><strong>Local Server (Middleware)</strong>: Any computer running JVM: PC, Raspberry, Android(not tested)</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+To simplify the documentation and images the term DEVICE will represent the Arduino / Similar
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="requirements"><a class="anchor" href="#requirements"></a>Requirements</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Before using OpenDevice you will need as a minimum a Java Development Kit (JDK) installed version 1.6 or above. Download the appropriate JDK for your operating system, run the installer, and then set up an environment variable called <strong>JAVA_HOME</strong> pointing to the location of this installation.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Linux, Windows, MacOS</p>
+</li>
+<li>
+<p><a href="http://www.oracle.com/technetwork/pt/java/javase/downloads/index.html" target="_blank">Java Development Kit (JDK)</a> (installed version 1.6 or above)</p>
+</li>
+<li>
+<p><a href="http://www.javatalk.org/2013/11/BEST-JAVA-IDE.html" target="_blank">Java IDE</a> (any one of your choice - if you plan compile the java examples)</p>
+</li>
+<li>
+<p><a href="http://developer.android.com/sdk/index.html" target="_blank">Android SDK</a> (if you plan compile the android examples)</p>
+</li>
+<li>
+<p>Choose the Toolchain/IDE for the Specific hardware platform, example:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="http://arduino.cc/en/main/software" target="_blank">Arduino IDE</a></p>
+</li>
+<li>
+<p><a href="http://energia.nu/download/" target="_blank">Energia IDE</a></p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+It is recommended that you have basic knowledge of Java and Arduino.
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="icon-important" title="Important"></i>
+</td>
+<td class="content">
+The core development has been done in Linux, you can see some bugs in other platforms, please help to do testing in another platform
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="installation"><a class="anchor" href="#installation"></a>Installation</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The Client APIs are managed by maven. Most IDEs have with native support for maven, you no need to install it manually.<br>
+Create a <a href="#maven-tutorial">new maven project</a> using the IDE and add this configuration:</p>
+</div>
+<div class="listingblock">
+<div class="title">Dependency declaration in Maven&#8217;s pom.xml</div>
+<div class="content">
+<pre class="CodeRay nowrap"><code class="xml language-xml"><span class="tag">&lt;dependencies&gt;</span>
+        <span class="tag">&lt;dependency&gt;</span>
+            <span class="tag">&lt;groupId&gt;</span>br.com.criativasoft.opendevice<span class="tag">&lt;/groupId&gt;</span>
+            <span class="tag">&lt;artifactId&gt;</span>opendevice-core<span class="tag">&lt;/artifactId&gt;</span> <i class="conum" data-value="1"></i><b>(1)</b>
+            <span class="tag">&lt;version&gt;</span>[0.1.2-SNAPSHOT,)<span class="tag">&lt;/version&gt;</span> <i class="conum" data-value="2"></i><b>(2)</b>
+        <span class="tag">&lt;/dependency&gt;</span>
+<span class="tag">&lt;/dependencies&gt;</span></code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Put the name of the component you need</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>Find in <a href="http://mvnrepository.com/artifact/br.com.criativasoft.opendevice">maven central</a> last version</td>
+</tr>
+</table>
+</div>
+<div class="listingblock">
+<div class="title">Dependency declaration in Gradle&#8217;s build.gradle</div>
+<div class="content">
+<pre class="CodeRay nowrap"><code class="groovy language-groovy">dependencies {
+  compile(<span class="string"><span class="delimiter">'</span><span class="content">br.com.criativasoft.opendevice:opendevice-core:${opendevice.version}</span><span class="delimiter">'</span></span>) { <i class="conum" data-value="1"></i><b>(1)</b>
+    transitive = <span class="predefined-constant">false</span>
+  }
+}</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Find in <a href="http://mvnrepository.com/artifact/br.com.criativasoft.opendevice">maven central</a> last version and change ${opendevice.version}</td>
+</tr>
+</table>
+</div>
+<div class="sect2">
+<h3 id="maven-tutorial"><a class="anchor" href="#maven-tutorial"></a>Maven Tutorial:</h3>
+<div class="paragraph">
+<p>If you are new to maven these tutorials can help you:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Getting started with maven: <a href="http://tutorials.jenkov.com/maven/maven-tutorial.html">http://tutorials.jenkov.com/maven/maven-tutorial.html</a></p>
+</li>
+<li>
+<p><a href="https://www.youtube.com/watch?v=uv9tXFrTLtI">Creating new maven Project (youtube)</a></p>
+</li>
+<li>
+<p><a href="http://www.tech-recipes.com/rx/39279/create-a-new-maven-project-in-eclipse" target="_blank">Create a New Maven Project in Eclipe</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="get-sources"><a class="anchor" href="#get-sources"></a>Get Sources</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The source code is hosted on Github, you need <a href="http://git-scm.com/book/en/Getting-Started-Installing-Git" target="_blank">install git</a>. Some IDEs comes with it installed.
+Alternatively you can <a href="https://github.com/CriativaSoft/OpenDevice/archive/master.zip">download directly</a>, it is more practical but would not recommend it because you can not get the updates.</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Clone OpenDevice repository</dt>
+</dl>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="nowrap">git clone https://github.com/CriativaSoft/OpenDevice --depth 1 --depth 1</pre>
+</div>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Find folders</dt>
+<dd>
+<div class="ulist">
+<ul>
+<li>
+<p>OpenDevice/opendevice-samples</p>
+</li>
+<li>
+<p>OpenDevice/opendevice-connection/opendevice-connection-samples (low-level samples)</p>
+</li>
+</ul>
+</div>
+</dd>
+</dl>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="icon-important" title="Important"></i>
+</td>
+<td class="content">
+In the examples of the arduino documentation will be used for demonstration, but not be limited to it.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="samples"><a class="anchor" href="#samples"></a>Samples</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>To better understand how each example you can refer to the: <a href="/docs/#samples">documentation/samples</a></p>
+</div>
+</div>
+</div></div></div></div><div class="large-4 columns"><ul class="button-group radius" style="margin-top: 1.2em; margin-bottom: -0.625em"><li><a class="small secondary button" href="https://github.com/asciidoctor/asciidoctor.org/edit/master/docs/getting-started.adoc">Edit</a></li><li><a class="small secondary button" href="https://github.com/asciidoctor/asciidoctor.org/raw/master/docs/getting-started.adoc">Raw</a></li><li><a class="small secondary button" href="https://github.com/asciidoctor/asciidoctor.org/commits/master/docs/getting-started.adoc">History</a></li><li><i class="icon-github icon-2x"></i></li></ul><h4>Resources</h4><p><i class="icon-download"></i> <a href="/docs/download">Download</a><br><i class="icon-github"></i> Development: <a href="https://github.com/CriativaSoft/OpenDevice">GitHub</a><br><i class="icon-group"></i> Discussions: <a href="http://groups.google.com.br/d/forum/opendevice-iot">Groups</a><br><i class="icon-facebook-sign"></i> Facebook <a href="https://www.facebook.com/opendevice" rel="publisher">OpenDevice</a></p><h4>Contribute to OpenDevice docs</h4><p>This website is open source! The source is hosted on GitHub.</p><p>If you want to help by improving upon it, <a href="http://github.com/CriativaSoft/opendevice.criativasoft.com.br">fork the project</a>, revise the content, then send a pull request. When the pull request is merged, the site will be updated automatically.</p></div></div></div><footer><div class="row full-width"><div class="large-6 columns"><p>&copy; CriativaSoft 2014.<br><span style="white-space: nowrap;">Composed in AsciiDoc. Styled by Foundation. Baked with Awestruct.</span><br>Content licensed under the CC BY 3.0 License.</p></div><div class="large-6 columns"></div></div></footer><script>document.write('<script src=' + ('__proto__' in {} ? '/javascripts/vendor/zepto' : '/javascripts/vendor/jquery') + '.js><\/script>')</script><script src="/javascripts/foundation/foundation.js"></script><script src="/javascripts/foundation/foundation.topbar.js"></script><script>$(document).foundation();</script><script>(function() { var p1 = document.createElement('script'); p1.async = true; p1.src = 'https://apis.google.com/js/plusone.js'; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(p1, s);})();</script><script type="text/javascript">
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount','UA-52975804-2']);
+_gaq.push(['_trackPageview']);
+(function() {
+ var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+ ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+</script>
+</body></html>
