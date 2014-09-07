@@ -12,7 +12,9 @@
 
 == Downloads
 
-NOTE: Pre-alpha stage
+NOTE: Pre-alpha stage.
+
+NOTE: End-User Download section is not ative, goto https://opendevice.atlassian.net/wiki/display/DOC[Docs^]. I'll show you how to use the libraries and APIs.
 
 Before using OpenDevice you will need as a minimum a Java Development Kit (JDK) installed version 1.6 or above. Download the appropriate JDK for your operating system, run the installer, and then set up an environment variable called JAVA_HOME pointing to the location of this installation.
 
@@ -71,7 +73,7 @@ Most components in OpenDevice is developed in JAVA and is published to Maven Cen
 
 For details of how to develop using OpenDevice, recommend reading the documentation specific to each component (the links pointing in the downloads section) and check the sample projects. However you can start with a more general guide
 
-* link:/docs/getting-started[Getting Started] (for Developers)
+* https://opendevice.atlassian.net/wiki/display/DOC[Getting Started & Docs]
 
 == Sources
 
