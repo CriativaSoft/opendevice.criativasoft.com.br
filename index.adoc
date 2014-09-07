@@ -72,23 +72,6 @@ TODO: falar do modelo PUB-SUB e programação baseada em eventos, poderia ter um
 
 For details of how to develop using OpenDevice, recommend reading the documentation specific to each component (the links pointing in the downloads section) and check the sample projects. However you can start with a more general guide
 
-* link:docs/getting-started[Getting Started]
-* link:docs[Documentation]
-* link:docs/#samples[Samples]
-
-== Contributing
-
-In the spirit of {freesoftware}[free software], 'everyone' is encouraged to
-help improve this project.
-Here are some ways *you* can contribute:
- using beta versions, reporting bugs, writing documentation, writing code...
-
-==== Submitting an Issue
-
-We use the {issues}[GitHub issue tracker] associated with this project
-to track bugs and features. Before submitting a bug report or feature
-request, check to make sure it hasn't already been submitted. 
-
-==== Submitting a Pull Request
-
-When performing any fix or implement a new feature feel free to make a {pr}[pull request], so you need to create a {fork}[fork of the repository].
+* https://opendevice.atlassian.net/wiki/display/DOC/Getting+started[Getting Started]
+* https://opendevice.atlassian.net/wiki/display/DOC/Documentation[Documentation]
+* https://opendevice.atlassian.net/wiki/display/DOC/Tutorials[Tutorials]
