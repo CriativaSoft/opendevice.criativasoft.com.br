@@ -31,7 +31,7 @@ The main objective is monitor and control inexpensive hardwares like Arduino, Ra
 
 This allows you to focus on your project and innovation, leave obscure details of communication protocols and specifications with OpenDevice, you will make a major step towards the success of your project.
 
-TIP: Plug your device (Arduino/Raspberypi/Other) to the Cloud and sync in real-time	
+TIP: Plug your device (Arduino/Raspberypi/Other) to the Cloud and sync in real-time.
 
 == Technology
 
@@ -45,6 +45,7 @@ image::site-technology.png[]
  * Multi-protocol support
  * Language agnostic
  * Platform Agnostic (Windows, Linux, Mac, MIPs on OpenWRT)
+ * Lightweight Servers (not need the tomcat or glassfish) 
 
 
 == Components
