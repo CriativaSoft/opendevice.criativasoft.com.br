@@ -45,7 +45,7 @@ image::site-technology.png[]
  * Multi-protocol support
  * Language agnostic
  * Platform Agnostic (Windows, Linux, Mac, MIPs on OpenWRT)
- * Lightweight Servers (not need the tomcat or glassfish) 
+ * Lightweight/Built-in Servers (not need the tomcat or glassfish) 
 
 
 == Components
@@ -57,14 +57,14 @@ The middleware can run both locally and in the cloud and is compatible with any 
 
 image::component-clients.png[]
 
-APIs used to connect with the Middleware (or directly with the hardware) using protocols like Rest and WebSocket, some examples are: {repo}/[JavaScript API^], {repo}/opendevice-clients[Java API^], {repo}/opendevice-clients/opendevice-wasync-client[Android API^]. + 
+APIs used to connect with the Middleware (or directly with the hardware) using protocols like Rest and WebSocket, some examples are: {repo}/opendevice-clients/opendevice-js[JavaScript API^], {repo}/opendevice-clients[Java API^], {repo}/opendevice-clients/opendevice-wasync-client[Android API^]. + 
 They make your life very easy by abstracting low-level details.
 You can communicate directly with the device without using the middleware using the binary protocol and with the help of the library {repo}/opendevice-connection/opendevice-connection-stream[opendevice-connection-stream^] (for USB, Bluetooth, Ethernet, Wifi) + 
 See the {docs}/Documentation#Documentation-Tutorials[tutorials and samles] for how to use these libraries to control devices.
 
 image::component-firmware.png[]
 
-This component is used in the arduino (and {docs}/Documentation#Documentation-SupportedDevices[similars]) and has various facilities for working with sensors and actuators in some cases avoiding manual programming. +
+This component/library is used in the arduino (and {docs}/Documentation#Documentation-SupportedDevices[similars]) and has various facilities for working with sensors and actuators in some cases avoiding manual programming. +
 Also implements the {docs}/Binary+protocol[binary communication protocol] with Middleware or another device. 
 
 

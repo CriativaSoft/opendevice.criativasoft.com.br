@@ -42,8 +42,9 @@ Before using OpenDevice you will need as a minimum a Java Development Kit (JDK) 
 //https://xively.com/dev/tutorials/arduino_wi-fi/
 //https://xively.com/dev/hardware/
 
-{asterisk} TODO: É preciso colocar informações de como instalar cada um e executar...
+// {asterisk} TODO: É preciso colocar informações de como instalar cada um e executar...
 
+////
 == Developer Components and Plugins
 
 Most components in OpenDevice is developed in JAVA and is published to Maven Central.
@@ -66,12 +67,13 @@ Most components in OpenDevice is developed in JAVA and is published to Maven Cen
 |
 |Sample Dir
 |===
+////
 
 
 
 == Getting Started
 
-For details of how to develop using OpenDevice, recommend reading the documentation specific to each component (the links pointing in the downloads section) and check the sample projects. However you can start with a more general guide
+For details of how to develop using OpenDevice APIs, recommend reading the documentation specific to each component (the links pointing in the downloads section) and check the sample projects. However you can start with a more general guide
 
 * https://opendevice.atlassian.net/wiki/display/DOC[Getting Started & Docs]
 
