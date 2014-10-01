@@ -39,13 +39,15 @@ image::site-technology.png[]
 
 === Features
 
- * Open API
+ * Open API (for: REST, JavaScript, Java, Android, Arduino, EnergiaIDE)
+ * Cloud Connector
  * Real-time (WebSockets)
  * Event-Based
- * Multi-protocol support
+ * Async & non-blocking
+ * Multi-protocol support (Usb, Bluetooth, TCP)
  * Language agnostic
  * Platform Agnostic (Windows, Linux, Mac, MIPs on OpenWRT)
- * Lightweight/Built-in Servers (not need the tomcat or glassfish) 
+ * Lightweight/Built-in Servers (not need the tomcat or glassfish)
 
 
 == Components
