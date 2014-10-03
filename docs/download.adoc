@@ -1,14 +1,14 @@
 = Download
 :page-layout: base
 :toc:
-:sources: https://github.com/CriativaSoft/OpenDevice
-:issues-ref: https://github.com/CriativaSoft/OpenDevice/issues
+:sources: https://github.com/OpenDevice
+:issues-ref: https://github.com/OpenDevice/issues
 :maven-repo-ref: http://mvnrepository.com/artifact/br.com.criativasoft.opendevice
 :docs-ref: link:/docs
 :table-caption!:
 :language: java
 :font-awesome-url: http://fortawesome.github.io/Font-Awesome/
-:license: https://raw.githubusercontent.com/CriativaSoft/OpenDevice/master/license/license.txt
+:license: https://raw.githubusercontent.com/OpenDevice/master/license/license.txt
 
 == Downloads
 
