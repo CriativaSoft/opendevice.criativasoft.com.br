@@ -50,6 +50,22 @@ image::site-technology.png[]
  * Lightweight/Built-in Servers (not need the tomcat or glassfish)
 
 
++++
+<div class="feature" id="mcus">
+<h4>MCUs</h4>
+<ul>
+<li>C SDK / Library</li>
+<li>Java Embedded</li><p class="body disabled">(coming soon)</p>
+</ul>
+</div>
++++
+
+
+== Overview
+
+image::overview.png[]
+
+
 == Components
 
 image::component-middleware.png[]
@@ -68,11 +84,6 @@ image::component-firmware.png[]
 
 This component/library is used in the arduino (and {docs}/Documentation#Documentation-SupportedDevices[similars]) and has various facilities for working with sensors and actuators in some cases avoiding manual programming. +
 Also implements the {docs}/Binary+protocol[binary communication protocol] with Middleware or another device. 
-
-
-== Overview
-
-image::overview.png[]
 
 
 == Event-driven and Real-Time
