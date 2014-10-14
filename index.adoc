@@ -50,6 +50,7 @@ image::site-technology.png[]
  * Lightweight/Built-in Servers (not need the tomcat or glassfish)
 
 
+////
 +++
 <div class="feature" id="mcus">
 <h4>MCUs</h4>
@@ -59,7 +60,7 @@ image::site-technology.png[]
 </ul>
 </div>
 +++
-
+////
 
 == Overview
 
