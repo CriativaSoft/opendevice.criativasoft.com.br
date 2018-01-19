@@ -1,3 +1,0 @@
-=== Set up the Arduino
-
-If you have already used Arduino before this then you can skip this step. This will setup the Arduino development environment on your computer which will allow you to upload code to your Arduino. Go to the Arduino website and choose your platform (Windows, Mac, or Linux) and follow their http://arduino.cc/en/Guide/HomePage[guide to installing the IDE].

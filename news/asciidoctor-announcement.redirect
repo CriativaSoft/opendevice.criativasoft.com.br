@@ -1,5 +1,0 @@
----
-inhibit_indexifier: true
-interpolate: true
----
-#{site.base_url}/news/2013/01/30/asciidoc-returns-to-github/
